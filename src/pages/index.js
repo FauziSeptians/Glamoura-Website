@@ -5,7 +5,6 @@ import {
    useScroll,
    useTransform,
 } from "framer-motion";
-import CardPhotoGlamour from "./component/content/cardWhy";
 import { useRef, createRef, useState, useEffect } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
