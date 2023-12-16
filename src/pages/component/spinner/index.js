@@ -19,7 +19,7 @@ const Spinners = () => {
             src="/assets/logo.jpeg"
             initial={{ width: "200px", opacity: 0 }}
             animate={{
-               width: "280px",
+               width: "220px",
                opacity: 1,
                transition: {
                   duration: 1,

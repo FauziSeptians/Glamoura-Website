@@ -18,7 +18,7 @@ const SlickCarousel = () => {
       <div>
          <Slider {...settings}>
             <div>
-               <div className="Image h-[550px] w-full bg-orange-200">
+               <div className="Image sm:h-[550px] h-[200px] w-full bg-orange-200">
                   <img
                      src="/assets/banner1.webp"
                      className="w-full h-full object-cover"
@@ -26,7 +26,7 @@ const SlickCarousel = () => {
                </div>
             </div>
             <div>
-               <div className="Image h-[550px] w-full bg-orange-200">
+               <div className="Image sm:h-[550px] h-[200px] w-full bg-orange-200">
                   <img
                      src="/assets/banner3.webp"
                      className="w-full h-full object-cover"
@@ -34,7 +34,7 @@ const SlickCarousel = () => {
                </div>
             </div>
             <div>
-               <div className="Image h-[550px] w-full bg-orange-200">
+               <div className="Image sm:h-[550px] h-[200px] w-full bg-orange-200">
                   <img
                      src="/assets/banner2.webp"
                      className="w-full h-full object-cover"

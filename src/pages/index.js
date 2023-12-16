@@ -67,36 +67,35 @@ const Home = () => {
          <AnimatePresence>
             {statusReload ? <Spinners></Spinners> : ""}
          </AnimatePresence>
-
          <div className="pt-[60px]">
             <SlickCarousel />
          </div>
          <section className="container mx-auto mt-10 mb-10">
-            <div className="Header text-[45px] w-full flex justify-center mb-5">
+            <div className="Header sm:text-[45px] text-[22px] w-full flex justify-center mb-5">
                Glamoura's Taglines
             </div>
             <motion.div
-               className="body  h-[450px] grid grid-cols-3 gap-5  flex items-center"
+               className="body  sm:h-[450px] sm:grid grid-cols-3 gap-5  sm:flex flex-col items-center"
                ref={refDiv}
                style={{ scale: 1.1 }}
                initial={{ opacity: 0, scale: 0.5 }} // Properti awal saat elemen dimuat
                animate={{ opacity: 1, scale: 1 }}
             >
-               <div className="flex flex-col items-center ">
-                  <img src="/assets/beauty.png" width={150}></img>
-                  <div className="mt-3 text-[26px]  w-full text-center">
+               <div className="flex flex-col items-center sm:mt-0 mt-4">
+                  <img src="/assets/beauty.png" className="sm:w-[150px] w-[80px]"></img>
+                  <div className="mt-3 sm:text-[26px] text-[16px]  w-full text-center">
                      Esensial
                   </div>
                </div>
-               <div className="flex flex-col items-center">
-                  <img src="/assets/makeup.png" width={150}></img>
-                  <div className="mt-3 text-[26px]  w-full text-center">
+               <div className="flex flex-col items-center sm:mt-0 mt-4">
+                  <img src="/assets/makeup.png" className="sm:w-[150px] w-[80px]"></img>
+                  <div className="mt-3 sm:text-[26px] text-[16px]  w-full text-center">
                      Berkualitas
                   </div>
                </div>
-               <div className="flex flex-col items-center">
-                  <img src="/assets/products.png" width={150}></img>
-                  <div className="mt-3 text-[26px]  w-full text-center">
+               <div className="flex flex-col items-center sm:mt-0 mt-4">
+                  <img src="/assets/products.png" className="sm:w-[150px] w-[80px]"></img>
+                  <div className="mt-3 sm:text-[26px] text-[16px]  w-full text-center">
                      Trendi
                   </div>
                </div>
@@ -104,15 +103,15 @@ const Home = () => {
          </section>
          <section className="Body p-10 bg-[#f4cb8e] ">
             <div className="container mx-auto">
-               <div className="h-[600px]">
-                  <div className="Header text-[45px]">
+               <div className="sm:h-[600px]">
+                  <div className="Header  sm:text-[45px] text-[22px]">
                      Our Favourites This Season
                   </div>
-                  <div className="Body p-3 w-full mt-10">
-                     <div className="flex justify-between">
+                  <div className="Body p-3 w-full sm:mt-10 mt-2">
+                     <div className="sm:flex justify-between">
                         <motion.div
                            whileHover={{ translateY: "-10px" }}
-                           class="group border-gray-100/30 flex w-full max-w-xs flex-col self-center overflow-hidden rounded-lg border bg-[#ece6e6] shadow-md"
+                           class="sm:mt-0 group border-gray-100/30 flex w-full max-w-xs flex-col self-center overflow-hidden rounded-lg border bg-[#ece6e6] shadow-md"
                         >
                            <a
                               class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
@@ -154,7 +153,7 @@ const Home = () => {
                         </motion.div>
                         <motion.div
                            whileHover={{ translateY: "-10px" }}
-                           class="group border-gray-100/30 flex w-full max-w-xs flex-col self-center overflow-hidden rounded-lg border bg-[#ece6e6] shadow-md"
+                           class="sm:mt-0 mt-3 group border-gray-100/30 flex w-full max-w-xs flex-col self-center overflow-hidden rounded-lg border bg-[#ece6e6] shadow-md"
                         >
                            <a
                               class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
@@ -196,14 +195,14 @@ const Home = () => {
                         </motion.div>
                         <motion.div
                            whileHover={{ translateY: "-10px" }}
-                           class="group border-gray-100/30 flex w-full max-w-xs flex-col self-center overflow-hidden rounded-lg border bg-[#ece6e6] shadow-md"
+                           class="sm:mt-0 mt-3 group border-gray-100/30 flex w-full max-w-xs flex-col self-center overflow-hidden rounded-lg border bg-[#ece6e6] shadow-md"
                         >
                            <a
                               class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
                               href="#"
                            >
                               <img
-                                 class="peer absolute top-0 right-0 h-full w-full object-cover"
+                                 class="peer absolute top-0 right-0 h-[full] w-full object-cover"
                                  src="/assets/1.jpeg"
                                  alt="product image"
                               />
@@ -236,28 +235,19 @@ const Home = () => {
                               </a>
                            </div>
                         </motion.div>
-
-                        {/* {DataPhoto.map((el, index) => {
-                           return (
-                              <CardPhotoGlamour
-                                 propsData={el}
-                                 idx={index}
-                              ></CardPhotoGlamour>
-                           );
-                        })} */}
                      </div>
                   </div>
                </div>
             </div>
-            <div className=" h-[50px] flex justify-center">
+            <div className="sm:mt-0 mt-3 h-[50px] flex justify-center">
                <motion.button
                   onClick={() => {
                      Router.push("/Product");
                   }}
                   whileHover={{ scale: 1.03 }}
-                  className="bg-red-400 w-[200px] rounded-[80px] flex justify-evenly items-center "
+                  className="bg-red-400 sm:w-[200px] w-[150px] rounded-[20px] sm:px-0  flex justify-evenly items-center "
                >
-                  <div>Show More</div>
+                  <div className="sm:text-[18px] text-[14px]">Show More</div>
 
                   <EastIcon></EastIcon>
                </motion.button>
@@ -270,13 +260,13 @@ const Home = () => {
 
             <div className="Body">
                <motion.div
-                  className="CardInformasi grid grid-cols-12 mb-5 "
+                  className="CardInformasi sm:grid sm:grid-cols-12 mb-5 "
                   ref={refDiv}
                   style={{ translateX: slidingRL, opacity: opacity }}
                >
                   <div className="col-span-10 flex justify-between items-center gap-[50px] ">
                      <div>
-                        <div className="Photo w-[300px] h-[300px] ">
+                        <div className="Photo sm:w-[300px] h-[300px] ">
                            <img
                               src="/assets/5.jpeg"
                               className="object-cover w-full h-full rounded-xl"
@@ -300,8 +290,8 @@ const Home = () => {
                   style={{ translateX: slidingLR, opacity: opacity }}
                >
                   <div className="col-span-2 "></div>
-                  <div className="col-span-10 flex justify-between items-center gap-[50px] ">
-                     <div className="w-[75%] text-justify">
+                  <div className="col-span-10 sm:flex block justify-between items-center gap-[50px] ">
+                     <div className="sm:w-[75%] text-justify">
                         Glamoura memahami tanggung jawabnya terhadap lingkungan
                         dan terus berusaha menjadi perusahaan yang
                         berkelanjutan. Dengan memilih bahan-bahan ramah
@@ -310,7 +300,7 @@ const Home = () => {
                         generasi mendatang.
                      </div>
                      <div>
-                        <div className="Photo w-[300px] h-[300px] ">
+                        <div className="Photo sm:w-[300px] h-[300px] ">
                            <img
                               src="/assets/5.jpeg"
                               className="object-cover w-full h-full rounded-xl"
@@ -345,17 +335,17 @@ const Home = () => {
                </motion.div>
             </div>
          </section>
-         <section className="InformationNews container mx-auto mb-[100px] mt-[60px]">
-            <div className="Header text-[45px] w-full mb-5">
+         <section className="sm:px-0 px-5 InformationNews container mx-auto sm:mb-[100px] mb-5 mt-[60px]">
+            <div className="Header sm:text-[45px] text-[22px] w-full sm:mb-5 mb-3">
                News Information
             </div>
 
-            <div className="grid grid-cols-3 gap-5">
+            <div className="sm:grid sm:grid-cols-3 flex flex-col gap-5">
                <motion.a
                   whileHover={{ scale: 1.02 }}
                   href="https://www.liputan6.com/health/read/5476801/pakar-estetika-medis-asal-korea-bagikan-teknik-untuk-ciptakan-kontur-wajah-yang-seimbango"
                >
-                  <Card className=" h-[300px] rounded-lg cursor-pointer">
+                  <Card className="sm:h-[300px] h-[150px] rounded-lg cursor-pointer">
                      <CardHeader className="absolute z-10 bottom-1 flex-col !items-start">
                         <p className="text-tiny text-white/60 uppercase font-bold">
                            Kecantikan
@@ -378,10 +368,10 @@ const Home = () => {
                   whileHover={{ scale: 1.02 }}
                   href="https://www.liputan6.com/health/read/5464289/akhir-pekan-saatnya-berburu-produk-beauty-di-beautitastic"
                >
-                  <Card className=" h-[300px] rounded-lg">
+                  <Card className=" sm:h-[300px] h-[150px] rounded-lg">
                      <CardHeader className="absolute z-10 bottom-1 flex-col !items-start">
                         <p className="text-tiny text-white/60 uppercase font-bold">
-                           Health Info
+                           Info Kesehatan
                         </p>
                         <h4 className="text-white font-medium text-large">
                            Akhir Pekan, Saatnya Berburu Produk Beauty di
@@ -400,13 +390,13 @@ const Home = () => {
                   href="https://www.liputan6.com/citizen6/read/5430823/ini-perawatan-kulit-tubuh-rambut-dan-estetika-ala-sultan"
                   whileHover={{ scale: 1.02 }}
                >
-                  <Card className=" h-[300px] rounded-lg">
+                  <Card className=" sm:h-[300px] h-[150px] rounded-lg">
                      <CardHeader className="absolute z-10 bottom-1 flex-col !items-start">
                         <p className="text-tiny text-white/60 uppercase font-bold">
-                           Supercharged
+                           Tutorial
                         </p>
                         <h4 className="text-white font-medium text-large">
-                           Creates beauty like a beast
+                           Cara wajah tetap mulus dan glowing
                         </h4>
                      </CardHeader>
                      <Image
