@@ -23,13 +23,14 @@ import Spinners from "./component/spinner";
 
 const Home = () => {
    const refDiv = useRef(null);
+   const refFavourite = useRef(null);
    const Router = useRouter();
    const { scrollYProgress } = useScroll({
       target: refDiv,
       offset: ["start end", "end end"],
    });
-   const slidingLR = useTransform(scrollYProgress, [0, 0.5], ["900px", "0px"]);
-   const slidingRL = useTransform(scrollYProgress, [0, 0.5], ["-900px", "0px"]);
+   const slidingLR = useTransform(scrollYProgress, [0, 0.5], ["200px", "0px"]);
+   const slidingRL = useTransform(scrollYProgress, [0, 0.5], ["-200px", "0px"]);
    const opacity = useTransform(scrollYProgress, [0, 0.7], [0, 1]);
    const [statusReload, setStatusReload] = useState(true);
 
@@ -71,46 +72,98 @@ const Home = () => {
             <SlickCarousel />
          </div>
          <section className="container mx-auto mt-10 mb-10">
-            <div className="Header sm:text-[45px] text-[22px] w-full flex justify-center mb-5">
-               Glamoura's Taglines
-            </div>
             <motion.div
-               className="body  sm:h-[450px] sm:grid grid-cols-3 gap-5  sm:flex flex-col items-center"
                ref={refDiv}
-               style={{ scale: 1.1 }}
-               initial={{ opacity: 0, scale: 0.5 }} // Properti awal saat elemen dimuat
-               animate={{ opacity: 1, scale: 1 }}
+               className="Header sm:text-[45px] text-[22px] w-full flex justify-center mb-5"
+               initial={{ opacity: 0, translateY: "200px" }}
+               animate={{ opacity: 1, translateY: 0 }}
+               viewport={{ once: true }}
+               whileInView={{ opacity: 1, translateY: 0 }}
+               transition={{ delay: 1 }}
             >
-               <div className="flex flex-col items-center sm:mt-0 mt-4">
-                  <img src="/assets/beauty.png" className="sm:w-[150px] w-[80px]"></img>
+               Glamoura's Taglines
+            </motion.div>
+            <motion.div
+               className="body  sm:h-[450px] sm:grid grid-cols-3 gap-5  flex flex-col items-center"
+               ref={refDiv}
+            >
+               <motion.div
+                  className="flex flex-col items-center sm:mt-0 mt-4"
+                  initial={{ opacity: 0, scale: 0.5 }} // Properti awal saat elemen dimuat
+                  animate={{ opacity: 1, scale: 1 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{
+                     delay: 1,
+                  }}
+                  viewport={{ once: true }}
+               >
+                  <img
+                     src="/assets/beauty.png"
+                     className="sm:w-[150px] w-[80px]"
+                  ></img>
                   <div className="mt-3 sm:text-[26px] text-[16px]  w-full text-center">
                      Esensial
                   </div>
-               </div>
-               <div className="flex flex-col items-center sm:mt-0 mt-4">
-                  <img src="/assets/makeup.png" className="sm:w-[150px] w-[80px]"></img>
+               </motion.div>
+               <motion.div
+                  className="flex flex-col items-center sm:mt-0 mt-4"
+                  initial={{ opacity: 0, scale: 0.5 }} // Properti awal saat elemen dimuat
+                  animate={{ opacity: 1, scale: 1 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{
+                     delay: 1.25,
+                  }}
+                  viewport={{ once: true }}
+               >
+                  <img
+                     src="/assets/makeup.png"
+                     className="sm:w-[150px] w-[80px]"
+                  ></img>
                   <div className="mt-3 sm:text-[26px] text-[16px]  w-full text-center">
                      Berkualitas
                   </div>
-               </div>
-               <div className="flex flex-col items-center sm:mt-0 mt-4">
-                  <img src="/assets/products.png" className="sm:w-[150px] w-[80px]"></img>
+               </motion.div>
+               <motion.div
+                  className="flex flex-col items-center sm:mt-0 mt-4"
+                  initial={{ opacity: 0, scale: 0.5 }} // Properti awal saat elemen dimuat
+                  animate={{ opacity: 1, scale: 1 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{
+                     delay: 1.5,
+                  }}
+                  viewport={{ once: true }}
+               >
+                  <img
+                     src="/assets/products.png"
+                     className="sm:w-[150px] w-[80px]"
+                  ></img>
                   <div className="mt-3 sm:text-[26px] text-[16px]  w-full text-center">
                      Trendi
                   </div>
-               </div>
+               </motion.div>
             </motion.div>
          </section>
-         <section className="Body p-10 bg-[#f4cb8e] ">
+         <section className="Body p-10 bg-[#f4cb8e] " ref={refFavourite}>
             <div className="container mx-auto">
                <div className="sm:h-[600px]">
-                  <div className="Header  sm:text-[45px] text-[22px]">
+                  <motion.div
+                     className="Header sm:text-[45px] text-[22px]"
+                     initial={{ x: 300 }}
+                     whileInView={{
+                        x: 0,
+                     }}
+                     viewport={{ once: true }}
+                  >
                      Our Favourites This Season
-                  </div>
-                  <div className="Body p-3 w-full sm:mt-10 mt-2">
+                  </motion.div>
+                  <motion.div className="Body p-3 w-full sm:mt-10 mt-2">
                      <div className="sm:flex justify-between">
                         <motion.div
                            whileHover={{ translateY: "-10px" }}
+                           initial={{ opacity: 0, translateY: "200px" }}
+                           whileInView={{ opacity: 1, translateY: 0 }}
+                           transition={{ delay: 0.5 }}
+                           viewport={{ once: true }}
                            class="sm:mt-0 group border-gray-100/30 flex w-full max-w-xs flex-col self-center overflow-hidden rounded-lg border bg-[#ece6e6] shadow-md"
                         >
                            <a
@@ -153,6 +206,10 @@ const Home = () => {
                         </motion.div>
                         <motion.div
                            whileHover={{ translateY: "-10px" }}
+                           initial={{ opacity: 0, translateY: "200px" }}
+                           whileInView={{ opacity: 1, translateY: 0 }}
+                           transition={{ delay: 0.75 }}
+                           viewport={{ once: true }}
                            class="sm:mt-0 mt-3 group border-gray-100/30 flex w-full max-w-xs flex-col self-center overflow-hidden rounded-lg border bg-[#ece6e6] shadow-md"
                         >
                            <a
@@ -161,12 +218,12 @@ const Home = () => {
                            >
                               <img
                                  class="peer absolute top-0 right-0 h-full w-full object-cover"
-                                 src="/assets/1.jpeg"
+                                 src="/assets/4.jpeg"
                                  alt="product image"
                               />
                               <img
                                  class="peer peer-hover:right-0 absolute top-0 -right-96 h-full w-full object-cover transition-all delay-100 duration-1000 hover:right-0"
-                                 src="/assets/2.jpeg"
+                                 src="/assets/5.jpeg"
                                  alt="product image"
                               />
                               <svg
@@ -195,6 +252,10 @@ const Home = () => {
                         </motion.div>
                         <motion.div
                            whileHover={{ translateY: "-10px" }}
+                           initial={{ opacity: 0, translateY: "200px" }}
+                           whileInView={{ opacity: 1, translateY: 0 }}
+                           transition={{ delay: 1 }}
+                           viewport={{ once: true }}
                            class="sm:mt-0 mt-3 group border-gray-100/30 flex w-full max-w-xs flex-col self-center overflow-hidden rounded-lg border bg-[#ece6e6] shadow-md"
                         >
                            <a
@@ -203,12 +264,12 @@ const Home = () => {
                            >
                               <img
                                  class="peer absolute top-0 right-0 h-[full] w-full object-cover"
-                                 src="/assets/1.jpeg"
+                                 src="/assets/6.jpeg"
                                  alt="product image"
                               />
                               <img
                                  class="peer peer-hover:right-0 absolute top-0 -right-96 h-full w-full object-cover transition-all delay-100 duration-1000 hover:right-0"
-                                 src="/assets/2.jpeg"
+                                 src="/assets/7.jpeg"
                                  alt="product image"
                               />
                               <svg
@@ -236,7 +297,7 @@ const Home = () => {
                            </div>
                         </motion.div>
                      </div>
-                  </div>
+                  </motion.div>
                </div>
             </div>
             <div className="sm:mt-0 mt-3 h-[50px] flex justify-center">
@@ -245,6 +306,10 @@ const Home = () => {
                      Router.push("/Product");
                   }}
                   whileHover={{ scale: 1.03 }}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ delay: 1 }}
+                  viewport={{ once: true }}
                   className="bg-red-400 sm:w-[200px] w-[150px] rounded-[20px] sm:px-0  flex justify-evenly items-center "
                >
                   <div className="sm:text-[18px] text-[14px]">Show More</div>
@@ -253,27 +318,35 @@ const Home = () => {
                </motion.button>
             </div>
          </section>
-         <section className="mt-10 WhyGlamoura container mx-auto px-[100px] mb-[100px]">
-            <div className="Header text-[45px] w-full flex justify-center mb-5">
+         <section className="mt-10 WhyGlamoura container mx-auto sm:px-[100px] px-5 sm:mb-[100px]">
+            <motion.div
+               className="Header text-[45px] w-full flex justify-center mb-5"
+               initial={{ opacity: 0, translateY: "200px" }}
+               viewport={{ once: true }}
+               whileInView={{ opacity: 1, translateY: 0 }}
+               transition={{ delay: 0.5 }}
+            >
                Why Glamoura
-            </div>
+            </motion.div>
 
             <div className="Body">
                <motion.div
-                  className="CardInformasi sm:grid sm:grid-cols-12 mb-5 "
-                  ref={refDiv}
-                  style={{ translateX: slidingRL, opacity: opacity }}
+                  className="CardInformasi sm:grid sm:grid-cols-12 mb-5"
+                  initial={{ opacity: 0, translateX: "200px" }}
+                  viewport={{ once: true }}
+                  whileInView={{ opacity: 1, translateX: 0 }}
+                  transition={{ delay: 1 }}
                >
-                  <div className="col-span-10 flex justify-between items-center gap-[50px] ">
+                  <div className="col-span-10 sm:flex justify-between items-center gap-[50px] ">
                      <div>
                         <div className="Photo sm:w-[300px] h-[300px] ">
                            <img
-                              src="/assets/5.jpeg"
+                              src="/assets/Homeassets/riset.jpg"
                               className="object-cover w-full h-full rounded-xl"
                            ></img>
                         </div>
                      </div>
-                     <div className="w-[75%] text-justify">
+                     <div className="sm:w-[75%] w-full sm:mt-0 mt-2 text-justify">
                         Glamoura secara terus-menerus melakukan riset dan
                         pengembangan untuk menghadirkan inovasi terbaru dalam
                         produk skincare. Produk-produk kami didesain untuk
@@ -286,12 +359,14 @@ const Home = () => {
                </motion.div>
                <motion.div
                   className="CardInformasi grid grid-cols-12 mb-5"
-                  ref={refDiv}
-                  style={{ translateX: slidingLR, opacity: opacity }}
+                  initial={{ opacity: 0, translateX: "-200px" }}
+                  viewport={{ once: true }}
+                  whileInView={{ opacity: 1, translateX: 0 }}
+                  transition={{ delay: 1 }}
                >
-                  <div className="col-span-2 "></div>
-                  <div className="col-span-10 sm:flex block justify-between items-center gap-[50px] ">
-                     <div className="sm:w-[75%] text-justify">
+                  <div className="sm:col-span-2 col-span-0"></div>
+                  <div className="sm:col-span-10 col-span-12 sm:flex block justify-between items-center gap-[50px] ">
+                     <div className="sm:w-[75%] text-justify sm:block hidden">
                         Glamoura memahami tanggung jawabnya terhadap lingkungan
                         dan terus berusaha menjadi perusahaan yang
                         berkelanjutan. Dengan memilih bahan-bahan ramah
@@ -302,28 +377,39 @@ const Home = () => {
                      <div>
                         <div className="Photo sm:w-[300px] h-[300px] ">
                            <img
-                              src="/assets/5.jpeg"
+                              src="/assets/Homeassets/ramahlingkungan.webp"
                               className="object-cover w-full h-full rounded-xl"
                            ></img>
                         </div>
+                     </div>
+                     <div className="sm:w-[75%] w-full sm:mt-0 mt-2 text-justify sm:hidden block">
+                        Glamoura memahami tanggung jawabnya terhadap lingkungan
+                        dan terus berusaha menjadi perusahaan yang
+                        berkelanjutan. Dengan memilih bahan-bahan ramah
+                        lingkungan dan praktik produksi yang bertanggung jawab,
+                        Glamoura berkomitmen untuk menjaga keindahan alam untuk
+                        generasi mendatang.
                      </div>
                   </div>
                </motion.div>
                <motion.div
                   className="CardInformasi grid grid-cols-12 mb-5"
                   ref={refDiv}
-                  style={{ translateX: slidingRL, opacity: opacity }}
+                  initial={{ opacity: 0, translateX: "200px" }}
+                  viewport={{ once: true }}
+                  whileInView={{ opacity: 1, translateX: 0 }}
+                  transition={{ delay: 1 }}
                >
-                  <div className="col-span-10 flex justify-between items-center gap-[50px] ">
+                  <div className="sm:col-span-10 col-span-12 sm:flex block justify-between items-center gap-[50px] ">
                      <div>
-                        <div className="Photo w-[300px] h-[300px] ">
+                        <div className="Photo sm:w-[300px] sm:h-[300px] ">
                            <img
-                              src="/assets/5.jpeg"
+                              src="/assets/Homeassets/harga.jpg"
                               className="object-cover w-full h-full rounded-xl"
                            ></img>
                         </div>
                      </div>
-                     <div className="w-[75%] text-justify">
+                     <div className="sm:w-[75%] w-full text-justify sm:mt-0 mt-3">
                         Kecantikan harus dapat diakses oleh semua orang.
                         Glamoura mengusung prinsip harga terjangkau untuk
                         memastikan setiap individu memiliki kesempatan untuk
@@ -331,7 +417,7 @@ const Home = () => {
                         harus menguras kantong.
                      </div>
                   </div>
-                  <div className="col-span-2 "></div>
+                  <div className="sm:col-span-2 col-span-0 "></div>
                </motion.div>
             </div>
          </section>
@@ -340,10 +426,21 @@ const Home = () => {
                News Information
             </div>
 
-            <div className="sm:grid sm:grid-cols-3 flex flex-col gap-5">
+            <motion.div
+               className="sm:grid sm:grid-cols-3 flex flex-col gap-5"
+               ref={refDiv}
+            >
                <motion.a
                   whileHover={{ scale: 1.02 }}
                   href="https://www.liputan6.com/health/read/5476801/pakar-estetika-medis-asal-korea-bagikan-teknik-untuk-ciptakan-kontur-wajah-yang-seimbango"
+                  style={{ scale: 1.1 }}
+                  initial={{ opacity: 0, scale: 0.5, translateY: "200px" }} // Properti awal saat elemen dimuat
+                  animate={{ opacity: 1, scale: 1 }}
+                  whileInView={{ opacity: 1, scale: 1, translateY: 0 }}
+                  transition={{
+                     delay: 1 * 0.09,
+                  }}
+                  viewport={{ once: true }}
                >
                   <Card className="sm:h-[300px] h-[150px] rounded-lg cursor-pointer">
                      <CardHeader className="absolute z-10 bottom-1 flex-col !items-start">
@@ -367,6 +464,14 @@ const Home = () => {
                <motion.a
                   whileHover={{ scale: 1.02 }}
                   href="https://www.liputan6.com/health/read/5464289/akhir-pekan-saatnya-berburu-produk-beauty-di-beautitastic"
+                  style={{ scale: 1.1 }}
+                  initial={{ opacity: 0, scale: 0.5, translateY: "200px" }} // Properti awal saat elemen dimuat
+                  animate={{ opacity: 1, scale: 1 }}
+                  whileInView={{ opacity: 1, scale: 1, translateY: 0 }}
+                  transition={{
+                     delay: 2 * 0.09,
+                  }}
+                  viewport={{ once: true }}
                >
                   <Card className=" sm:h-[300px] h-[150px] rounded-lg">
                      <CardHeader className="absolute z-10 bottom-1 flex-col !items-start">
@@ -389,6 +494,14 @@ const Home = () => {
                <motion.a
                   href="https://www.liputan6.com/citizen6/read/5430823/ini-perawatan-kulit-tubuh-rambut-dan-estetika-ala-sultan"
                   whileHover={{ scale: 1.02 }}
+                  style={{ scale: 1.1 }}
+                  initial={{ opacity: 0, scale: 0.5, translateY: "200px" }} // Properti awal saat elemen dimuat
+                  animate={{ opacity: 1, scale: 1 }}
+                  whileInView={{ opacity: 1, scale: 1, translateY: 0 }}
+                  transition={{
+                     delay: 3 * 0.09,
+                  }}
+                  viewport={{ once: true }}
                >
                   <Card className=" sm:h-[300px] h-[150px] rounded-lg">
                      <CardHeader className="absolute z-10 bottom-1 flex-col !items-start">
@@ -407,7 +520,7 @@ const Home = () => {
                      />
                   </Card>
                </motion.a>
-            </div>
+            </motion.div>
          </section>
       </>
    );

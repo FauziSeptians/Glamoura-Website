@@ -53,8 +53,8 @@ const About = () => {
          </section>
          {statusShowsection && (
             <>
-               <section id="visimisi" className="mt-10 container mx-auto mb-10">
-                  <div className="Header sm:text-[45px] text[22px] text-center">
+               <motion.section id="visimisi" className="mt-10 container mx-auto mb-10" initial={{opacity : 0, height : 0}} animate={{opacity: 1, height : "100%"}}>
+                  <div className="Header sm:text-[45px] text[22px] text-center mb-5">
                      Visi & Misi
                   </div>
                   <div className="sm:px-0 px-3 sm:grid sm:grid-cols-12 gap-5 mt-3 sm:text-[18px] text-[16px]">
@@ -110,7 +110,7 @@ const About = () => {
                         </div>
                      </div>
                   </div>
-               </section>
+               </motion.section>
                <section className="sm:px-0 px-3 container mx-auto mb-10">
                   <div className="Header sm:text-[45px] text-[20px] text-start mb-3">
                      Gallery Perusahaan

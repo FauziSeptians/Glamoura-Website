@@ -29,6 +29,10 @@ body {
    scroll-behavior: smooth;
 }
 
+::-webkit-scrollbar { 
+   display: none;  /* Safari and Chrome */
+}
+
 html {
    overflow: scroll;
    overflow-x: hidden;
@@ -37,3 +41,5 @@ html {
 .Header {
    font-family: "Merriweather", serif;
 }
+
+
