@@ -12,6 +12,14 @@ const About = () => {
    }
    const [statusReload, setStatusReload] = useState(true);
 
+   function MailClick(){
+      window.location.href="mailto:chelseahoban160@gmail.com"
+   }
+
+   function TelpClick(){
+      window.open("https://api.whatsapp.com/send?phone=6282114253870&text=Hallo,Permisi saya tertarik dengan product Glamoura anda", '_blank');
+   }
+
    setTimeout(() => {
       setStatusReload(false);
    }, 1000);
@@ -53,7 +61,12 @@ const About = () => {
          </section>
          {statusShowsection && (
             <>
-               <motion.section id="visimisi" className="mt-10 container mx-auto mb-10" initial={{opacity : 0, height : 0}} animate={{opacity: 1, height : "100%"}}>
+               <motion.section
+                  id="visimisi"
+                  className="mt-10 container mx-auto mb-10"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "100%" }}
+               >
                   <div className="Header sm:text-[45px] text[22px] text-center mb-5">
                      Visi & Misi
                   </div>
@@ -139,7 +152,7 @@ const About = () => {
                            className="object-cover w-full sm:h-full h-[200px] rounded-xl"
                         ></img>
                         <img
-                         src="/assets/perusahaan/gallery6.webp"
+                           src="/assets/perusahaan/gallery6.webp"
                            className="object-cover w-full sm:h-full h-[200px] rounded-xl"
                         ></img>
                         <img
@@ -156,6 +169,55 @@ const About = () => {
                   </div>
                   <div></div>
                </section>
+               <motion.section
+                  id="visimisi"
+                  className="mt-10 container mx-auto mb-10"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "100%" }}
+               >
+                  <div className="Header sm:text-[45px] text[22px] text-center mb-5">
+                     Contact Information
+                  </div>
+                  <div className="sm:px-0 px-3 sm:grid sm:grid-cols-12 gap-5 mt-3 sm:text-[18px] text-[16px]">
+                     <div className="col-span-5 bg-red-100">
+                        <img
+                           src="/assets/perusahaan/perusahaan2.jpg"
+                           className="object-cover w-full h-full rounded-xl"
+                        ></img>
+                     </div>
+                     <div className="col-span-7  flex items-center text-justify">
+                        <div>
+                           <div className="mb-5 sm:mt-0 mt-3">
+                              <div className="font-medium text-[20px] mb-2">
+                                 Contact Perusahaan
+                              </div>
+                              <div className="flex flex-col gap-4 mt-3">
+                                 <div className="flex items-center gap-3">
+                                    <motion.img
+                                       src="/assets/footerAssets/gmail.png"
+                                       width={40}
+                                       whileHover={{ scale: 1.1 }}
+                                       className="cursor-pointer"
+                                       onClick={() => MailClick()}
+                                    ></motion.img>
+                                    <motion.div whileHover={{color: "#F87171"}} className="cursor-pointer" onClick={() => MailClick()}>chelseahoban160@gmail.com</motion.div>
+                                 </div>
+                                 <div className="flex items-center gap-3">
+                                    <motion.img
+                                       src="/assets/footerAssets/whatsapp.png"
+                                       width={40}
+                                       whileHover={{ scale: 1.1 }}
+                                       className="cursor-pointer"
+                                       onClick={() => TelpClick()}
+                                    ></motion.img>
+                                    <motion.div whileHover={{color: "#F87171"}} className="cursor-pointer" onClick={() => TelpClick()}>082114253870</motion.div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </motion.section>
             </>
          )}
       </>
