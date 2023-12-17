@@ -320,7 +320,7 @@ const Home = () => {
          </section>
          <section className="mt-10 WhyGlamoura container mx-auto sm:px-[100px] px-5 sm:mb-[100px]">
             <motion.div
-               className="Header text-[45px] w-full flex justify-center mb-5"
+               className="Header sm:text-[45px] text-[22px] w-full flex justify-center mb-5"
                initial={{ opacity: 0, translateY: "200px" }}
                viewport={{ once: true }}
                whileInView={{ opacity: 1, translateY: 0 }}
